@@ -38,7 +38,10 @@
 //SyntaxHighlighter.all();
 $(document).ready(function() {
 <% IF module.sloc > 0 %>
-togglePod(<% module.pod_lines.json %>);
+    var hasLineNumber = document.location.hash.match(/^#L(\d+)$/);
+    if (! hasLineNumber) {
+        togglePod(<% module.pod_lines.json %>);
+    }
 <% END %>
 if(document.location.hash)
     document.location.href = document.location.href;
